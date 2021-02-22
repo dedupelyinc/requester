@@ -7,6 +7,6 @@ key="$4"
 croncheckurl="$5"
 apiKey=$(ruby -ryaml -e "puts YAML.load_file('$conf')['$key']")
 
-curl -m 10 "$croncheckurl/start"
+curl -m 10 "$croncheckurl/start" -vvv
 curl -X $method "$path?apiKey=$apiKey" -vvv
-curl -m 10 "$croncheckurl/end"
+curl -m 10 "$croncheckurl/end" -vvv
